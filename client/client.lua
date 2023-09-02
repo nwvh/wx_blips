@@ -1,7 +1,7 @@
 Citizen.CreateThread(function()
     for k,v in pairs(wx.Blips) do
         local blip
-        for _,coord in v.Coords do
+        for _,coord in pairs(v.Coords) do
             blip = AddBlipForCoord(coord.x,coord.y,coord.z)
         end
         SetBlipSprite(blip, v.Sprite)
