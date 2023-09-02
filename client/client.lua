@@ -1,9 +1,6 @@
 Citizen.CreateThread(function()
     for k,v in pairs(wx.Blips) do
-        local blip
-        for _,coord in pairs(v.Coords) do
-            blip = AddBlipForCoord(coord.x,coord.y,coord.z)
-        end
+        local blip = AddBlipForCoord(v.Coords.x,v.Coords.y,v.Coords.z)
         SetBlipSprite(blip, v.Sprite)
         SetBlipScale(blip, v.Size)
         SetBlipFlashes(blip, v.Flash)
@@ -22,10 +19,7 @@ end)
 
 AddEventHandler('onResourceStop', function()
     for k, v in pairs(wx.Blips) do
-        local blip
-        for _,coord in v.Coords do
-            blip = AddBlipForCoord(coord.x,coord.y,coord.z)
-        end
+        local blip = AddBlipForCoord(v.Coords.x,v.Coords.y,v.Coords.z)
         RemoveBlip(blip)
     end
 end)
